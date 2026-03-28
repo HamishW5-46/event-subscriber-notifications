@@ -50,10 +50,6 @@ When a new The Events Calendar event is published:
 
 ## Development Notes
 
-- This dev version no longer uses WordPress user accounts for mailing-list subscribers.
+- The plugin stores mailing-list subscribers in its own database table instead of WordPress user accounts.
 - The plugin auto-creates its subscriber table on activation and also checks for it on load.
 - Rewrite changes may still require a permalink refresh in WordPress if URLs appear stale.
-
-## Production Note
-
-If production is still using the older user-based subscriber model, do not switch directly without a migration step. A one-time migration tool should first move existing subscribers, tokens, and statuses into the new subscriber table.
