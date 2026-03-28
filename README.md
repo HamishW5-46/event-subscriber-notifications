@@ -53,3 +53,7 @@ When a new The Events Calendar event is published:
 - The plugin stores mailing-list subscribers in its own database table instead of WordPress user accounts.
 - The plugin auto-creates its subscriber table on activation and also checks for it on load.
 - Rewrite changes may still require a permalink refresh in WordPress if URLs appear stale.
+
+## Email Deliverability
+
+It is recommended to use this plugin together with a transactional email relay or SMTP delivery service. Without that, confirmation emails and event notifications will be sent directly from the local server mail configuration, which can reduce deliverability and increase the chance of messages being marked as spam or rejected.
