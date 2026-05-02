@@ -1,6 +1,6 @@
-# Event Subscriber Notifications
+# Post Notifications - Email Subscription
 
-WordPress plugin for collecting event-notification subscribers, sending double opt-in confirmation emails, and notifying confirmed subscribers when new `tribe_events` posts are published.
+WordPress plugin for collecting post-notification subscribers, sending double opt-in confirmation emails, and notifying confirmed subscribers when new posts are published.
 
 ## Features
 
@@ -8,21 +8,20 @@ WordPress plugin for collecting event-notification subscribers, sending double o
 - Public subscribe page and shortcode form
 - Double opt-in confirmation flow
 - Unsubscribe links in outgoing emails
-- Batched event notification sending
+- Batched post notification sending
 - WordPress admin screens for subscriber management and plugin settings
 - Optional dashboard QR widget for the public subscribe page
 
 ## Plugin Structure
 
 - `event-subscriber-notifications.php`: main plugin logic
-- `event-template.php`: default Events Calendar editor template integration
-- `templates/email-notification.php`: outgoing event email template
+- `templates/email-notification.php`: outgoing post email template
 - `templates/opt-in-confirmation.php`: opt-in confirmation email template
 - `qr.png`: QR image for the dashboard widget
 
 ## Admin Areas
 
-After activation, the plugin adds an `Event Notifications` menu in WordPress admin with:
+After activation, the plugin adds a `Post Notifications` menu in WordPress admin with:
 
 - `Subscribers`: search, review, resend confirmation, and delete subscriber records
 - `Settings`: configure slugs, send behavior, email subjects, sender identity, and dashboard widget visibility
@@ -32,20 +31,20 @@ After activation, the plugin adds an `Event Notifications` menu in WordPress adm
 The plugin supports:
 
 - A public subscribe page using the configured subscribe slug
-- A shortcode: `[esn_optin_form]`
+- A shortcode: `[pstn_optin_form]`
 
 New subscribers are stored in the plugin table with `pending` status until they confirm by email. Confirmed subscribers move to `subscribed`. Unsubscribed addresses remain in the table with `unsubscribed` status.
 
-## Event Notification Flow
+## Post Notification Flow
 
-When a new The Events Calendar event is published:
+When a new post is published:
 
 1. A scheduled job is queued.
 2. Confirmed subscribers are processed in batches.
-3. Each subscriber receives the event email with:
-   - event title
-   - event excerpt, or a trimmed content fallback
-   - event link
+3. Each subscriber receives the post email with:
+   - post title
+   - post excerpt, or a trimmed content fallback
+   - post link
    - unsubscribe link
 
 ## Development Notes
@@ -56,4 +55,4 @@ When a new The Events Calendar event is published:
 
 ## Email Deliverability
 
-It is recommended to use this plugin together with a transactional email relay or SMTP delivery service. Without that, confirmation emails and event notifications will be sent directly from the local server mail configuration, which can reduce deliverability and increase the chance of messages being marked as spam or rejected.
+It is recommended to use this plugin together with a transactional email relay or SMTP delivery service. Without that, confirmation emails and post notifications will be sent directly from the local server mail configuration, which can reduce deliverability and increase the chance of messages being marked as spam or rejected.
