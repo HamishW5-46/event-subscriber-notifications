@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 <body>
 <div class="container">
-    <h2>Please confirm you would like to receive notifications of new events published by <?php echo esc_html($site_name); ?></h2>
-    <p>Thanks for subscribing to event notifications! Please confirm your subscription by clicking the button below:</p>
+    <h2>Please confirm you would like to receive notifications of new posts published by <?php echo esc_html($site_name); ?></h2>
+    <p>Thanks for subscribing to post notifications! Please confirm your subscription by clicking the button below:</p>
     <p><a class="btn" href="<?php echo esc_url($confirm_url); ?>">Confirm Subscription</a></p>
     <p class="footer">
         If you did not request this subscription, you can safely ignore this email.
